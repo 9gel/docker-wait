@@ -1,0 +1,15 @@
+mysql:
+  image: mysql:latest
+  restart: always
+  expose:
+    - 3306
+  env_file: ./example.env
+
+example:
+  build: ./example
+  links:
+    - mysql
+  env_file: ./example.env
+  environment:
+    WAIT_ON_LINK: mysql
+    WAIT_ON_PORT: 3306

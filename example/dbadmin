@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+set -x
+
+sh /wait
+
+mysql -h mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "show databases"

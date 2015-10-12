@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+echo "waiting for TCP connection to $WAIT_ON_LINK:$WAIT_ON_PORT"
+while ! nc -w 1 $WAIT_ON_LINK $WAIT_ON_PORT > /dev/null 2>&1
+do
+  echo -n .
+  sleep 1
+done
+echo 'ok'
